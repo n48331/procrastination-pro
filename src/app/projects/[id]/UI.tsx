@@ -6,9 +6,18 @@ const ProjectView = () => {
   const params = useParams();
   const router = useRouter()
   const {id} = params;
-  const handleDelete = () => {
-    deleteProject(id);
-    router.push('/projects')}
+const handleDelete = async () => {
+  if (window.confirm("Are you sure you want to delete this project?")) {
+    try {
+      await deleteProject(id);
+      alert("Project deleted successfully!");
+      router.push('/projects');
+    } catch (error) {
+      alert(`Failed to delete the project`);
+    }
+  }
+}
+
 
     return (
         <>

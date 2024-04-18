@@ -30,8 +30,10 @@ const ProjectView = () => {
     setAllTaskCount({ total, completed, pending,onHold });
   }, [tasks,isModalOpen])
   const handleDelete = () => {
-    deleteProject(id);
-    router.push('/projects')
+    if (window.confirm("Are you sure you want to delete this project?")) {
+      deleteProject(id);
+      router.push('/projects');
+    }
   }
 console.log(tasks);
 
