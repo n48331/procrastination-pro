@@ -17,6 +17,7 @@ export const task = sqliteTable('task', {
     description: text('description'),
     status: text('status'),
     priority: text('priority'),
+    startDate: text('startDate'),
     dueDate: text('dueDate'),
     projectId: integer('projectId').references(() => project.id),
     comments: text('comments')
